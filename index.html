@@ -3,47 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/stylesheet.css"><link rel="stylesheet" href="assets/script.js">
+    <link rel="stylesheet" href="assets/stylesheet.css">
     <title>Coding Quiz</title>
 </head>
 
-<body>
-    <!-- Highscore and Timer container -->
-    <div class="container1">
+<body> 
+    <!-- containter for the whole quiz, scores and timer -->
+    <div class="container">
+        <!-- header with the highscore and timer -->
         <header>
-            <!-- Highscore button -->
-        <div>
-            <button>Highscore</button>
-        </div>
-        <!-- Timer -->
-        <div class="timer">
-            <p>Timer: </p>
-        </div>
+             <!-- Highscore button -->
+             <div>
+                 <button class="scores" id = "view-scores">Highscores</button>
+            </div>
+             <!-- Timer -->
+            <div class="timer">
+                 <p>Timer:<span id="timer">0</spa></p>
+             </div>
         </header>
-    </div>
-        <!-- Questions and Answers container -->
-    <main class="container2">
         
-        <section>
-            <h1 id="questions"></h1>
-        </section>
-        <!-- Answers -->
-        <section class="answers">
-            <div id="answer1">
-                <button></button>
-            </div>
-            <div id="answer2">
-                <button></button>
-            </div>
-            <div id="answer3">
-                <button></button>
-            </div>
-            <div id="answer4">
-                <button></button>
+            <!-- Quiz container -->
+        <main class="quiz">
+            <!-- The start screen before you start the quiz with start button -->
+            <div id= "start">
+                <section class="landing" id= "start-screen">
+                    <h1>Coding quiz</h1>
+                        <p>
+                            Try to answer the following code-related questions within the time limit.
+                            Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+                        </p>
 
-        </section>
-    </main>
+                        <button class="startbutton">Start Quiz</button>
+                </section>
+            </div>
+            <!-- Questions and Answers hidden until start button is hit -->
+                <section class="hide" id="questions">
+                    <h2 id="questions-prompts"></h2>
+                    <div class="answers" id="answers"></div>
+                </section>
+                
+                <section class="hide" id="end">
+                    <h2>Quiz Complete!</h2>
+                    <p>Final score: <span id="final-score"></span></p>
+                    <p>Please enter your Initals:<input type="text" id="name" max="3"/></p>
+                    <button id="submit-score">Submit</button>
+                </section>
+        </main>
 
+    </div>
+    <script>src= "script.js"</script>
 </body>
-<script>src= "script.js"</script>
+
 </html>
