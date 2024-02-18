@@ -1,0 +1,53 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* to postion the score, timer and quiz sections */
+.quiz {
+    margin: 10px auto;
+    max-width:700px;
+}
+ 
+/* To sepearate the scores and timer elements*/
+header {
+    display:flex;
+    justify-content: space-evenly;
+    margin: 25px;
+}
+/* for timer */
+.timer {
+font-size: larger;
+}
+/* For the first thing the user sees */
+.landing{
+    text-align: center;
+    font-size: 170%;
+}
+/* For all the buttons on the page */
+button{
+    border:none;
+    display: inline-block;
+    cursor:pointer;
+    color: white;
+    background-color: #0d00c0 ;
+    border-radius: 5px;
+    font-size: 120%;
+    text-align: center;
+    padding:20px;
+}
+/* to make the button elements hover */
+button:hover {
+    background-color: #6159d1;
+}
+/* For user input font to be larger */
+ input[type="text"] {
+    font-size: large;
+}
+/* To hide the questions and the ending of the quiz before the start of the quiz */
+.hide{
+    display: none;
+}
+
+
+
+/* Media query for adjusting size smaller screens */
+/* Media query for adjusting to larger screens */

@@ -14,11 +14,11 @@
         <header>
              <!-- Highscore button -->
              <div>
-                 <button class="scores" id = "view-scores">Highscores</button>
+                 <button class="header-scores" id = "view-scores">Highscores</button>
             </div>
              <!-- Timer -->
             <div class="timer">
-                 <p>Timer:<span id="timer">0</spa></p>
+                 <p>Timer:<span id="timer"> 0 </spa></p>
              </div>
         </header>
         
@@ -33,7 +33,7 @@
                             Keep in mind that incorrect answers will penalize your score/time by ten seconds!
                         </p>
 
-                        <button class="startbutton">Start Quiz</button>
+                        <button id="start-button">Start Quiz</button>
                 </section>
             </div>
             <!-- Questions and Answers hidden until start button is hit -->
@@ -41,11 +41,11 @@
                     <h2 id="questions-prompts"></h2>
                     <div class="answers" id="answers"></div>
                 </section>
-                
+            
                 <section class="hide" id="end">
                     <h2>Quiz Complete!</h2>
                     <p>Final score: <span id="final-score"></span></p>
-                    <p>Please enter your Initals:<input type="text" id="name" max="3"/></p>
+                    <p>Please enter your Initals: <input type="text" id="name" max="3"/></p>
                     <button id="submit-score">Submit</button>
                 </section>
         </main>
