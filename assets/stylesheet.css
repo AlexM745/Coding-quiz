@@ -2,7 +2,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /* to postion the score, timer and quiz sections */
-.quiz {
+.quiz, .score {
     margin: 10px auto;
     max-width:700px;
 }
@@ -18,7 +18,7 @@ header {
 font-size: larger;
 }
 /* For the first thing the user sees */
-.landing{
+.front-page{
     text-align: center;
     font-size: 170%;
 }
@@ -47,7 +47,34 @@ button:hover {
     display: none;
 }
 
+.feedback{
+    border-bottom: 3px solid, rgb(6, 108, 192) ;
+    color: rgb(6, 108, 192)  ;
+    margin-top: 15px;
+    padding-top: 10px;
+    font-style: italic;
+    font-size: 140%;
+}
+ol {
+    padding: 50px;
+    margin: 10px;
+    max-height: 400px;
+    overflow: auto;
+}
+ 
+li {
+    padding: 10px;
+    list-style: decimal inside none;
+}
+ 
+li:nth-child(odd) {
+    background-color: #dfdae7;
+}
 
 
 /* Media query for adjusting size smaller screens */
-/* Media query for adjusting to larger screens */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 70%;
+    }
+}
