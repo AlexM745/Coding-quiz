@@ -1,12 +1,17 @@
+/* for the entire HTML pages */
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /* to postion the score, timer and quiz sections */
 .quiz, .score {
-    margin: 10px auto;
+    margin: 10px auto 0 auto;
     max-width:700px;
+    text-align: center;
 }
  
+.container {
+    padding: 10px;
+}
 /* To sepearate the scores and timer elements*/
 header {
     display:flex;
@@ -16,6 +21,7 @@ header {
 /* for timer */
 .timer {
 font-size: larger;
+
 }
 /* For the first thing the user sees */
 .front-page{
@@ -42,19 +48,39 @@ button:hover {
  input[type="text"] {
     font-size: large;
 }
+.options {
+    margin-top: 10%;
+} 
+.options button{
+    display: block;
+    padding: 15px;
+    margin-top: 25px;
+}
 /* To hide the questions and the ending of the quiz before the start of the quiz */
 .hide{
-    display: none;
+    display:none;
 }
-
+/* to make elements visible when susing javascript */
+.visible {
+    visibility:visible;
+}
+/* the try again button on leaderboard HTML page */
+.trybtn{
+    margin-bottom: 25px;
+}
+/* for the feedback on whether the answer picked in wrong or right */
 .feedback{
-    border-bottom: 3px solid, rgb(6, 108, 192) ;
     color: rgb(6, 108, 192)  ;
-    margin-top: 15px;
-    padding-top: 10px;
+    border-bottom: 5px solid rgb(6, 108, 192);
+    padding-bottom: 3px;
+    margin-top: 20px;
+    padding-top: 17px;
     font-style: italic;
-    font-size: 140%;
+    font-size: 200%;
+    position: absolute;
+    left: 35%;
 }
+  /* for th highscores in the leaderbord page */
 ol {
     padding: 50px;
     margin: 10px;
@@ -66,15 +92,16 @@ li {
     padding: 10px;
     list-style: decimal inside none;
 }
- 
-li:nth-child(odd) {
-    background-color: #dfdae7;
-}
-
 
 /* Media query for adjusting size smaller screens */
 @media screen and (max-width: 768px) {
     .container {
         width: 70%;
+    }
+}
+/* Media query for adjusting size larger screens */
+@media screen and (max-width: 992px) {
+    .container {
+        width:95%;
     }
 }

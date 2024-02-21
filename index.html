@@ -14,7 +14,7 @@
         <header>
              <!-- Highscore button -->
              <div>
-                 <button href="leaderboard.html"  class="header-scores" id ="view-scores">Highscores</button>
+                <a href="./leaderboard.html"><button   class="header-scores" id ="view-scores">Highscores</button></a>
             </div>
              <!-- Timer -->
             <div class="timer">
@@ -38,19 +38,21 @@
             <!-- Questions and Answers hidden until start button is hit -->
                 <section class="hide" id="questions">
                     <h2 id="questions-prompts"></h2>
-                    <div class="answeropts" id="answeropts"></div>
+                    <div class= "options" id="answeropts"></div>
                 </section>
-            
-                <section class="hide" id="end">
+            <!-- The end of the quis and the the submit button -->
+                <section class=" finished hide" id="end">
                     <h2>Quiz Complete!</h2>
                     <p>Final score: <span id="final-score"></span></p>
                     <p>Please enter your Initals: <input type="text" id="name" autocomplete="initials"/></p>
-                    <button id="submit-score">Submit</button>
+                    <a href=""><button id="submit-score">Submit</button></a>
                 </section>
+                <div class= "feedback hide " id = "feedback"></div>
+                
         </main>
-        <div class= "hide feedback" id = "feedback"></div>
+        
     </div>
-    <script scr="./script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
