@@ -14,7 +14,7 @@
         <header>
              <!-- Highscore button -->
              <div>
-                <a href="./leaderboard.html"><button   class="header-scores" id ="view-scores">Highscores</button></a>
+                <a href="#leaderboard"> <button   class="header-scores" id ="view-scores">Highscores</button></a>
             </div>
              <!-- Timer -->
             <div class="timer">
@@ -30,7 +30,7 @@
                     <h1>Coding quiz</h1>
                         <p>
                             Try to answer the following code-related questions within the time limit.
-                            Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+                            Incorrect answers will lower your score/time by ten seconds!
                         </p>
                         <button id="start-button">Start Quiz</button>
                 </section>
@@ -40,7 +40,7 @@
                     <h2 id="questions-prompts"></h2>
                     <div class= "options" id="answeropts"></div>
                 </section>
-            <!-- The end of the quis and the the submit button -->
+            <!-- The end of the quiz and the the submit button -->
                 <section class=" finished hide" id="end">
                     <h2>Quiz Complete!</h2>
                     <p>Final score: <span id="final-score"></span></p>
@@ -48,6 +48,17 @@
                     <a href="./leaderboard.html"><button id="submit-score">Submit</button></a>
                 </section>
                 <div class= "feedback hide " id = "feedback"></div>
+                <!-- Leaderboard -->
+                <section id="leaderboard"class ="score hide" >
+                    <h2>LeaderBoard </h2>
+                    <div>
+                        <ol id="highscores"></ol>
+                   </div>
+                <div>
+                    <a href="#view-scores"><button  class= "trybtn">Try Again</button></a> 
+                </div>
+                </section>
+                
                 
         </main>
         

@@ -1,7 +1,7 @@
 # Coding-quiz
-
+it is a work in proggress, Ill continue working on it.
 ## Description
-Bootcamp challenge to create a Coding quiz.
+Bootcamp challenge to create a coding quiz that asks questions about Javasript to help get prepared for job interviews.
 
 ## Web link
 
