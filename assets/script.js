@@ -1,17 +1,19 @@
 // document elements 
-var scoresEL = document.querySelector("#view-scores");
-var timerEL = document.querySelector("#timer");
-var startbtn = document.querySelector("#start-button");
-var questionsEL = document.querySelector("#questions");
-var choices =document.querySelector("#answeropts");
-var nameEL = document.querySelector("#name");
-var submitbtn = document.querySelector("#submit-score");
-var feedbackEl= document.querySelector("#feedback");
-var restartbtn = document.querySelector("#restart");
+let scores = document.querySelector("#view-scores");
+let timer = document.querySelector("#timer");
+let startbtn = document.querySelector("#start-button");
+let questions= document.querySelector("#questions");
+let choices =document.querySelector("#answeropts");
+let name = document.querySelector("#name");
+let submitbtn = document.querySelector("#submit-score");
+let feedback= document.querySelector("#feedback");
+let restartbtn = document.querySelector("#restart");
+let startscreen = document.querySelector("#start-page")
+let questionIndex = 0
 
 
 // array with question prompts, options and answer
-var questprompts = [
+const questprompts = [
     //0
     {   
         prompt:"Inside which HTML do we put the Javasript?",
@@ -46,4 +48,14 @@ var questprompts = [
     ];
 
 // start quiz after start button is clicked
-startbtn.addEventListener('click', );
+startbtn.addEventListener('click', function(){
+    time = setInterval(1000)
+questions.classList.remove("hide");
+startscreen.classList.add("hide");
+ showquestions();
+});
+
+function showquestions() {
+    let prompts = questprompts[questionIndex];
+    console.log(prompts);
+}
