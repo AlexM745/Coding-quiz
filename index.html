@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,61 +8,62 @@
     <title>Coding Quiz</title>
 </head>
 
-<body> 
+<body>
     <!-- containter for the whole quiz, scores and timer -->
     <div class="container">
         <!-- header with the highscore and timer -->
         <header>
-             <!-- Highscore button -->
-             <div>
-                <a href="#leaderboard"> <button   class="header-scores" id ="view-scores">Highscores</button></a>
+            <!-- Highscore button -->
+            <div>
+                <a href="#leaderboard"> <button class="header-scores" id="view-scores">Highscores</button></a>
             </div>
-             <!-- Timer -->
+            <!-- Timer -->
             <div class="timer">
-                 <p>Timer:<span id="timer"> 0 </spa></p>
-             </div>
+                <p>Timer:<span id="timer"> 0 </spa>
+                </p>
+            </div>
         </header>
-        
-            <!-- Quiz box -->
+
+        <!-- Quiz box -->
         <main class="quiz">
             <!-- The start text before you start the quiz with start button -->
-            <div id= "start">
+            <div id="start">
                 <section class="front-page" id="start-page">
                     <h1>Coding quiz</h1>
-                        <p>
-                            Try to answer the following code-related questions within the time limit.
-                            Incorrect answers will lower your score/time by ten seconds!
-                        </p>
-                        <button id="start-button">Start Quiz</button>
+                    <p>
+                        Try to answer the following code-related questions within the time limit.
+                        Incorrect answers will lower your score/time by ten seconds!
+                    </p>
+                    <button id="start-button">Start Quiz</button>
                 </section>
             </div>
             <!-- Questions and Answers hidden until start button is hit -->
-                <section class="hide" id="questions">
-                    <h2 id="questions-prompts"></h2>
-                    <div class= "options" id="answeropts"></div>
-                </section>
+            <section class="hide" id="questions">
+                <h2 id="questions-prompts"></h2>
+                <div class="options" id="answeropts"></div>
+            </section>
             <!-- The end of the quiz and the the submit button -->
-                <section class=" finished hide" id="end">
-                    <h2>Quiz Complete!</h2>
-                    <p>Final score: <span id="final-score"></span></p>
-                    <p>Please enter your Initals: <input type="text" id="name" autocomplete="initials"/></p>
-                    <a href="./leaderboard.html"><button id="submit-score">Submit</button></a>
-                </section>
-                <div class= "feedback hide " id = "feedback"></div>
-                <!-- Leaderboard -->
-                <section id="leaderboard"class ="score hide" >
-                    <h2>LeaderBoard </h2>
-                    <div>
-                        <ol id="highscores"></ol>
-                   </div>
+            <section class=" finished hide" id="end">
+                <h2>Quiz Complete!</h2>
+                <p>Final score: <span id="final-score"></span></p>
+                <p>Please enter your Initals: <input type="text" id="name" autocomplete="initials" /></p>
+                <a href="./leaderboard.html"><button id="submit-score">Submit</button></a>
+            </section>
+            <div class="feedback hide " id="feedback"></div>
+            <!-- Leaderboard -->
+            <section id="leaderboard" class="score hide">
+                <h2>LeaderBoard </h2>
                 <div>
-                    <a href="#view-scores"><button  class= "trybtn">Try Again</button></a> 
+                    <ol id="highscores"></ol>
                 </div>
-                </section>
-                
-                
+                <div>
+                    <a href="#view-scores"><button class="trybtn">Try Again</button></a>
+                </div>
+            </section>
+
+
         </main>
-        
+
     </div>
     <script src="./assets/script.js"></script>
 </body>
