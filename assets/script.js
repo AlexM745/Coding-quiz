@@ -10,6 +10,8 @@ let feedback = document.querySelector("#feedback");
 let restartbtn = document.querySelector("#restart");
 let startscreen = document.querySelector("#start-page")
 let questionWords = document.querySelector("#questions-prompts");
+let endScreen = document.querySelector("#end");
+let highScore = document.querySelector("#final-score");
 let timerStart = '';
 let questionIndex = 0;
 // array with question prompts, options and answer as and object
@@ -53,18 +55,19 @@ let timeClock = questprompts.length * 12
 
 // start quiz after start button is clicked
 startbtn.addEventListener('click', function () {
-    timerStart = setInterval((timeClick) * 1000);
+    timerStart = setInterval(timeClick, 1000);
     questions.classList.remove("hide");
     startscreen.classList.add("hide");
     showQuestions();
 });
 
 function timeClick() {
-    timeClock--;// timer decrement
+    timeClock --;// timer decrement
     timer.textContent = timeClock;// the amount of time shown on the timer element
+    if (timeClock <= 0){
+        end();
+    }
 }
-
-
 
 
 // fucntion to show the questions and the answer choices
@@ -103,8 +106,15 @@ function answerClick() {
     setTimeout(function(){ feedback.classList.add("hide");},500)
     // increments the questionindex by1
     questionIndex++;
-    if (questionIndex === questions.length){
-       
+    if (questionIndex === questprompts.length){
+        end();
     } else {showQuestions()}// if there are still questions it will show the next question in the object.
 
+}
+// this function is to end the quiz
+function end (){
+    questions.classList.add("hide");
+    endScreen.classList.remove("hide");
+    highScore.innerHTML = timeClock;
+    clearInterval(timerStart);
 }

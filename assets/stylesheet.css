@@ -8,7 +8,7 @@
     max-width:700px;
     text-align: center;
 }
- 
+/* adding padding to the whole all the sections*/
 .container {
     padding: 10px;
 }
@@ -48,9 +48,11 @@ button:hover {
  input[type="text"] {
     font-size: large;
 }
+/* for the answer choices */
 .options {
     margin-top: 10%;
 } 
+/* anwer choices button */
 .options button{
     display: block;
     padding: 15px;
@@ -80,14 +82,14 @@ button:hover {
     position: absolute;
     left: 35%;
 }
-  /* for th highscores in the leaderbord page */
+  /* for the highscores in the leaderbord page */
 ol {
     padding: 50px;
     margin: 10px;
     max-height: 400px;
     overflow: auto;
 }
- 
+/* for each highscore list */
 li {
     padding: 10px;
     list-style: decimal inside none;
