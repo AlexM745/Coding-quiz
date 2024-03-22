@@ -69,7 +69,7 @@ button:hover {
     margin-bottom: 25px;
 }
 /* for the feedback on whether the answer picked in wrong or right */
-.feedback{
+.feed-back{
     color: rgb(6, 108, 192)  ;
     border-bottom: 5px solid rgb(6, 108, 192);
     padding-bottom: 3px;

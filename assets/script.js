@@ -10,10 +10,8 @@ let feedback = document.querySelector("#feedback");
 let restartbtn = document.querySelector("#restart");
 let startscreen = document.querySelector("#start-page")
 let questionWords = document.querySelector("#questions-prompts");
-let questionIndex = 0;
 let timerStart = '';
-
-
+let questionIndex = 0;
 // array with question prompts, options and answer as and object
 const questprompts = [
     //0
@@ -43,32 +41,70 @@ const questprompts = [
     //6
     {
 
-        prompt: "What is event delagation ?",
+        prompt: "What is event delgation ?",
         options: ["Apply event to child via its parent", "Apply event to parent via its child", "Apply event to button via HTML"],
         answer: "function name()"
     }
 ];
 
+let timeClock = questprompts.length * 12
+
+
+
 // start quiz after start button is clicked
 startbtn.addEventListener('click', function () {
-    timerStart = setInterval(60*1000);
+    timerStart = setInterval((timeClick) * 1000);
     questions.classList.remove("hide");
     startscreen.classList.add("hide");
-    showquestions();
+    showQuestions();
 });
+
+function timeClick() {
+    timeClock--;// timer decrement
+    timer.textContent = timeClock;// the amount of time shown on the timer element
+}
+
+
 
 
 // fucntion to show the questions and the answer choices
-function showquestions() {
+function showQuestions() {
     let prompts = questprompts[questionIndex];
     questionWords.textContent = prompts.prompt;
     answerOpts.innerHTML = "";
     // for loop to get the answer choices
     for (var i = 0; i < prompts.options.length; i++) {
-        let answerBtn = document.createElement("button");
-        let choices = prompts.options[i];        
-        answerBtn.setAttribute("value", choices);
+        let answerBtn = document.createElement("button");// creates a button for each answer choice
+        let choices = prompts.options[i];
+        answerBtn.setAttribute("value", choices);// sets the correct answers choice
         answerBtn.textContent = i + 1 + "." + choices;
         answerOpts.appendChild(answerBtn);
+        answerBtn.addEventListener('click', answerClick);
     }
+}
+// function to make the answers clickable and check if the user choice is correct
+function answerClick() {
+    // if statement checks if the user choice is correct if not it takes away 10 secs and gives feedback.
+    if (this.value !== questprompts[questionIndex].answer) {
+        timeClock -= 10;
+        if (timeClock < 0) {
+            timeClock = 0;
+        }
+        timer.textContent = timeClock;
+        
+        feedback.innerHTML = "Wrong!";
+    } else {
+        
+        feedback.innerHTML = "Correct!";
+    }
+    // shows the feedback
+    feedback.classList.remove("hide"); 
+    // hides the feedback after it apppears;
+    setTimeout(function(){ feedback.classList.add("hide");},500)
+    // increments the questionindex by1
+    questionIndex++;
+    if (questionIndex === questions.length){
+       
+    } else {showQuestions()}// if there are still questions it will show the next question in the object.
+
 }
