@@ -1,17 +1,18 @@
 // document elements 
-let scores = document.querySelector("#view-scores");
+let scoresBtn = document.querySelector("#view-scores-btn");
 let timer = document.querySelector("#timer");
-let startbtn = document.querySelector("#start-button");
+let startBtn = document.querySelector("#start-button");
 let questions = document.querySelector("#questions");
 let answerOpts = document.querySelector("#answeropts");
 let name = document.querySelector("#name");
-let submitbtn = document.querySelector("#submit-score");
+let submitBtn = document.querySelector("#submit-score");
 let feedback = document.querySelector("#feedback");
-let restartbtn = document.querySelector("#restart");
-let startscreen = document.querySelector("#start-page")
+let restartBtn = document.querySelector("#restart");
+let startScreen = document.querySelector("#start-page")
 let questionWords = document.querySelector("#questions-prompts");
 let endScreen = document.querySelector("#end");
-let highScore = document.querySelector("#final-score");
+let finalScore = document.querySelector("#final-score");
+let leaderBoard = document.querySelector("#leaderboard");
 let timerStart = '';
 let questionIndex = 0;
 // array with question prompts, options and answer as and object
@@ -54,10 +55,10 @@ let timeClock = questprompts.length * 12
 
 
 // start quiz after start button is clicked
-startbtn.addEventListener('click', function () {
+startBtn.addEventListener('click', function () {
     timerStart = setInterval(timeClick, 1000);
     questions.classList.remove("hide");
-    startscreen.classList.add("hide");
+    startScreen.classList.add("hide");
     showQuestions();
 });
 
@@ -111,10 +112,33 @@ function answerClick() {
     } else {showQuestions()}// if there are still questions it will show the next question in the object.
 
 }
-// this function is to end the quiz
+// this function is to end the quiz and give the score after the quiz ends
 function end (){
     questions.classList.add("hide");
     endScreen.classList.remove("hide");
-    highScore.innerHTML = timeClock;
+    finalScore.innerHTML = timeClock;
     clearInterval(timerStart);
 }
+
+// to unhide the leader board
+
+submitBtn.addEventListener('click', function() {
+    endScreen.classList.add("hide")
+    leaderBoard.classList.remove("hide");
+})
+
+// show the leaderboard part of the page
+scoresBtn.addEventListener('click', function(){
+    clearInterval(timerStart);
+    startScreen.classList.add("hide")
+    endScreen.classList.add("hide")
+    questions.classList.add("hide");
+    leaderBoard.classList.remove("hide")
+})
+
+// go to the start page 
+restartBtn.addEventListener('click', function(){
+    timer.textContent = 0;
+    leaderBoard.classList.add("hide");
+    startScreen.classList.remove("hide");
+})
