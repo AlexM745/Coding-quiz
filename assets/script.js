@@ -112,7 +112,7 @@ function answerClick() {
     } else {showQuestions()}// if there are still questions it will show the next question in the object.
 
 }
-// this function is to end the quiz and give the score after the quiz ends
+// this function is to end the quiz and stop the time to give the score after the quiz ends
 function end (){
     questions.classList.add("hide");
     endScreen.classList.remove("hide");
@@ -120,14 +120,14 @@ function end (){
     clearInterval(timerStart);
 }
 
-// to unhide the leader board
+// to unhide the leader board section
 
 submitBtn.addEventListener('click', function() {
     endScreen.classList.add("hide")
     leaderBoard.classList.remove("hide");
 })
 
-// show the leaderboard part of the page
+// show the leaderboard section and time left when leaving during the quiz
 scoresBtn.addEventListener('click', function(){
     clearInterval(timerStart);
     startScreen.classList.add("hide")
@@ -136,9 +136,39 @@ scoresBtn.addEventListener('click', function(){
     leaderBoard.classList.remove("hide")
 })
 
-// go to the start page 
+// event listener to show the start-page and timer at zero from the leaderboard section
 restartBtn.addEventListener('click', function(){
     timer.textContent = 0;
     leaderBoard.classList.add("hide");
     startScreen.classList.remove("hide");
 })
+ let leaderScore = [];
+//renders the scores in leaderboard
+function renderScores{
+    let highscores = document.querySelector("#highscores");
+    highscores.innerHTML = "";
+
+    for(i=0; i < leaderScore.length; i++){
+        let score = leaderScore[i];
+
+        let scoreList = document.createElement('li')
+        scoreList.textContent = score;
+        scoreList.dataset.index = i;
+
+        highscores.appendChild(scoreList);
+    }
+}
+//gets scores from the localstorage
+function storedScores{
+    let savedScores = JSON.parse(localStorage.getItem("scores"))
+
+    if (savedScores !== null){
+        leaderScore = savedScores;
+    }
+
+    renderScores();
+}
+// stores scores in local storage.
+function storeScores{
+
+}
