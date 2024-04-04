@@ -125,6 +125,9 @@ function end (){
 submitBtn.addEventListener('click', function() {
     endScreen.classList.add("hide")
     leaderBoard.classList.remove("hide");
+   //stores scores and renders them
+    storeScores();
+    renderScores();
 })
 
 // show the leaderboard section and time left when leaving during the quiz
@@ -134,17 +137,18 @@ scoresBtn.addEventListener('click', function(){
     endScreen.classList.add("hide")
     questions.classList.add("hide");
     leaderBoard.classList.remove("hide")
+    renderScores();
 })
 
 // event listener to show the start-page and timer at zero from the leaderboard section
 restartBtn.addEventListener('click', function(){
     timer.textContent = 0;
-    leaderBoard.classList.add("hide");
     startScreen.classList.remove("hide");
+    
 })
  let leaderScore = [];
 //renders the scores in leaderboard
-function renderScores{
+function renderScores() {
     let highscores = document.querySelector("#highscores");
     highscores.innerHTML = "";
 
@@ -159,16 +163,18 @@ function renderScores{
     }
 }
 //gets scores from the localstorage
-function storedScores{
+function storedScores(){
     let savedScores = JSON.parse(localStorage.getItem("scores"))
 
     if (savedScores !== null){
         leaderScore = savedScores;
     }
-
+    //helper function to load scores on the HTML
     renderScores();
 }
 // stores scores in local storage.
-function storeScores{
-
+function storeScores(){
+localStorage.setItem("scores", JSON.stringify(leaderScore));
 }
+// load the storedScores function on window load
+storeScores();
