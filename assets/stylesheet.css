@@ -1,6 +1,11 @@
 /* for the entire HTML pages */
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+/* adds back ground color to body */
+body{
+    background-color: black;
 }
 /* to postion the score, timer and quiz sections */
 .quiz, .score {
@@ -8,6 +13,53 @@
     max-width:700px;
     text-align: center;
 }
+/*  this adds stulying to the quiz section in main */
+.quiz {
+    --borderWidth: 10px;
+    border: black;
+    border-radius: var(--borderWidth);
+    border-style: solid;
+    box-shadow: 0 20px 35px rgba(0, 0, 0,0.3);
+    padding: 5%;
+    background: #1D1F20;
+    color: white;
+    position: relative;
+}
+
+/*  this adds a background taht will have rgb colors animited to created a movingline around the box */
+.quiz::before{
+content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg,  
+  #fd004c,
+  #fe9000,
+  #fff020,
+  #3edf4b,
+  #3363ff,
+  #b102b7,
+  #fd004c);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+/* this is the animation  */
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 /* adding padding to the whole all the sections*/
 .container {
     padding: 10px;
@@ -21,7 +73,7 @@ header {
 /* for timer */
 .timer {
 font-size: larger;
-
+color: white;
 }
 /* For the first thing the user sees */
 .front-page{
@@ -34,7 +86,7 @@ button{
     display: inline-block;
     cursor:pointer;
     color: white;
-    background-color: #0d00c0 ;
+    background-color: magenta;
     border-radius: 5px;
     font-size: 120%;
     text-align: center;
@@ -72,15 +124,16 @@ button:hover {
 }
 /* for the feedback on whether the answer picked in wrong or right */
 .feed-back{
-    color: rgb(6, 108, 192)  ;
-    border-bottom: 5px solid rgb(6, 108, 192);
+    color: cyan ;
+    border-bottom: 5px solid cyan;
     padding-bottom: 3px;
     margin-top: 20px;
-    padding-top: 17px;
+    padding-top: 20px;
     font-style: italic;
     font-size: 200%;
     position: absolute;
-    left: 35%;
+    left: 42%;
+    top: 95%;
 }
   /* for the highscores in the leaderbord page */
 ol {

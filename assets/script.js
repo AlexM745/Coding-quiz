@@ -4,7 +4,7 @@ let timer = document.querySelector("#timer");
 let startBtn = document.querySelector("#start-button");
 let questions = document.querySelector("#questions");
 let answerOpts = document.querySelector("#answeropts");
-let name = document.querySelector("#name");
+let personName = document.querySelector("#name");
 let submitBtn = document.querySelector("#submit-score");
 let feedback = document.querySelector("#feedback");
 let restartBtn = document.querySelector("#restart");
@@ -15,6 +15,7 @@ let finalScore = document.querySelector("#final-score");
 let leaderBoard = document.querySelector("#leaderboard");
 let timerStart = '';
 let questionIndex = 0;
+
 // array with question prompts, options and answer as and object
 const questprompts = [
     //0
@@ -144,19 +145,24 @@ scoresBtn.addEventListener('click', function(){
 restartBtn.addEventListener('click', function(){
     timer.textContent = 0;
     startScreen.classList.remove("hide");
+    endScreen.classList.add("hide");
+    questions.classList.add("hide");
+    leaderBoard.classList.add("hide");
+    location.reload();
     
-})
- let leaderScore = [];
+});
+
+let leaderScore = [];
 //renders the scores in leaderboard
 function renderScores() {
-    let highscores = document.querySelector("#highscores");
+    let highscores = document.querySelector("#highscores") ;
     highscores.innerHTML = "";
 
     for(i=0; i < leaderScore.length; i++){
         let score = leaderScore[i];
 
         let scoreList = document.createElement('li')
-        scoreList.textContent = score;
+        scoreList.textContent = score.name +" "+score.score;
         scoreList.dataset.index = i;
 
         highscores.appendChild(scoreList);
@@ -164,7 +170,7 @@ function renderScores() {
 }
 //gets scores from the localstorage
 function storedScores(){
-    let savedScores = JSON.parse(localStorage.getItem("scores"))
+    let savedScores = JSON.parse(window.localStorage.getItem("scores"));
 
     if (savedScores !== null){
         leaderScore = savedScores;
@@ -174,7 +180,16 @@ function storedScores(){
 }
 // stores scores in local storage.
 function storeScores(){
-localStorage.setItem("scores", JSON.stringify(leaderScore));
+     let highscores = document.querySelector("#highscores") ;
+    let playerName = personName.value.trim();
+    if (playerName !== null){
+       let newScore = {name: playerName, score: timeClock};
+        leaderScore.push(newScore);
+    }
+    alert("Your score was submitted!")
+
+    
+    localStorage.setItem("scores", JSON.stringify(leaderScore));
 }
 // load the storedScores function on window load
-storeScores();
+storedScores();
